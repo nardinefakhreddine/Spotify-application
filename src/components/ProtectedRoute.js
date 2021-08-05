@@ -3,5 +3,5 @@ import { Redirect } from 'react-router-dom';
 
 export const ProtectedRoute = (props) => {
 
-    return sessionStorage.getItem('token') ? <props.render /> : <Redirect to='/' />
+    return localStorage.getItem('token') ? <props.render /> : <Redirect to='/' />
 }

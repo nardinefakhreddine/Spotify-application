@@ -20,10 +20,10 @@ function App() {
     
     
     if (url.includes('access_token')) {
-        sessionStorage.setItem('token', access_token);
+        localStorage.setItem('token', access_token);
     }
 
-    let token = sessionStorage.getItem('token');
+    let token = localStorage.getItem('token');
     return (
         <>
             <BrowserRouter>

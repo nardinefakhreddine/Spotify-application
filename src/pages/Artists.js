@@ -11,13 +11,13 @@ function Artists  ()  {
    
     const handleSearch = (e) => {
         setSearch(e.target.value);
-        sessionStorage.setItem('search', e.target.value);
+        localStorage.setItem('search', e.target.value);
         searchA(e, search);
     };
 
 
     useEffect(() => {
-        let savedSearch = sessionStorage.getItem('search');
+        let savedSearch = localStorage.getItem('search');
         if (savedSearch) {
             setSearch(savedSearch);
             searchA(null, savedSearch);
@@ -36,7 +36,7 @@ function Artists  ()  {
                 `https://api.spotify.com/v1/search?q=${searchParam}&type=artist`,
                 {
                     headers: {
-                        Authorization: `Bearer ${sessionStorage.getItem(
+                        Authorization: `Bearer ${localStorage.getItem(
                             'token'
                         )}`,
                     },
@@ -47,7 +47,7 @@ function Artists  ()  {
             })
             .catch((err) => {
                 console.log(err.message);
-                    sessionStorage.removeItem('token');
+                    localStorage.removeItem('token');
                     setBack(true);
                 
             });

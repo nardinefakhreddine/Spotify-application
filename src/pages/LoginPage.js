@@ -6,7 +6,7 @@ function LoginPage  ()  {
     let Spotify_URL =
         'https://accounts.spotify.com/authorize?client_id=89475f052c9a4a76aa47cd738c2c08d5&response_type=token&state=123&redirect_uri=http://localhost:3000&scope=user-read-private%20user-read-email';
 
-    let token = sessionStorage.getItem('token');
+    let token = localStorage.getItem('token');
     if (token) return <Redirect to='/' />;
 
     return (

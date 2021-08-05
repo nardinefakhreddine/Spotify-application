@@ -11,7 +11,7 @@ function Albums (props) {
     useEffect(() => {
         axios.get(`https://api.spotify.com/v1/artists/${artistID}/albums`, {
                 headers: {
-                    Authorization: `Bearer ${sessionStorage.getItem('token')}`,
+                    Authorization: `Bearer ${localStorage.getItem('token')}`,
                 },
             }).then((res) => {
                 setAlbums(res.data);
@@ -19,7 +19,7 @@ function Albums (props) {
             }).catch((err) => {
                 console.log(err);
                 if (err.message.includes('401')) {
-                    sessionStorage.removeItem('token');
+                    localStorage.removeItem('token');
                     setRedirect(true);
                 }
             });
