@@ -1,0 +1,16 @@
+.navbar {
+  background-color: #aaa;
+  padding: 10px;
+  padding-left: 50px;
+  border-bottom: 2px solid black;
+  font-size: 2rem;
+  min-width: "110vw";
+  color: rgb(9, 10, 9);
+  font-weight: lighter;
+}
+
+@media screen and (max-width: 450px) {
+  .navbar {
+    font-size: 1.5rem;
+  }
+}
