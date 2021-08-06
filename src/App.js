@@ -16,14 +16,14 @@ function App() {
     
     let access_token = url
         .split('#').pop().substring(url.indexOf('='), url.indexOf('&token_type') - 1);
-    
+    console.log(access_token);
     
     
     if (url.includes('access_token')) {
         localStorage.setItem('token', access_token);
     }
 
-    let token = localStorage.getItem('token');
+   
     return (
         <>
             <BrowserRouter>
@@ -32,7 +32,7 @@ function App() {
                     <Route
                         exact
                         path='/login'
-                        component={() => <LoginPage authenticated={token} />}
+                        component={() => <LoginPage/>}
                     />
                     <ProtectedRoute exact path='/:id' render={(props) => <Albums {...props} />} />
                     <ProtectedRoute exact path='/' render={(props) => <Artists {...props} />} />

@@ -43,12 +43,18 @@ function Artists  ()  {
                 }
             )
             .then( (res) => {
-                 setArtists(res.data.artists);
+                setArtists(res.data.artists);
+                console.log(artists);
             })
             .catch((err) => {
                 console.log(err.message);
+
+                if (err.message.includes('401')) {
                     localStorage.removeItem('token');
                     setBack(true);
+                }
+                    
+                   
                 
             });
     };
@@ -62,7 +68,7 @@ function Artists  ()  {
                             type='search'
                             className='form-control form-control-lg'
                             placeholder='Search for an artist…'
-                            onfocus="this.placeholder = ''"
+                           
                             onChange={(e) => handleSearch(e)}
                         />
 

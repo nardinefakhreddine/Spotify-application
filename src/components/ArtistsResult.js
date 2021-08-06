@@ -8,7 +8,8 @@ function ArtistsResult  ({ artists }){
                 ? artists.items.map((artist) => {
                       // console.log(artist);
 
-                      const stars = parseInt(artist.popularity / 20);
+                    const stars = parseInt(artist.popularity / 20);
+                    console.log(artist.popularity);
 
                       return (
                           <div

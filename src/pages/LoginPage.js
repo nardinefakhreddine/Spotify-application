@@ -15,6 +15,7 @@ function LoginPage  ()  {
                 <div className='login-link-container'>
                     <nav>Login</nav>
                     <span className='iconify' data-icon='mdi:spotify'></span>
+                    
                 </div>
             </a>
         </div>

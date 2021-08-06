@@ -7,6 +7,8 @@ function Albums (props) {
     const [albums, setAlbums] = useState([]);
     const [redirect, setRedirect] = useState(false);
     let artistID = props.location.state.artist.id;
+    
+    console.log("artistid:"+artistID);
 
     useEffect(() => {
         axios.get(`https://api.spotify.com/v1/artists/${artistID}/albums`, {
