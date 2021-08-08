@@ -15,7 +15,9 @@ function Albums (props) {
     useEffect(() => {
         axios.get(`https://api.spotify.com/v1/artists/${artistID}/albums`, {
                 headers: {
-                    Authorization: `Bearer ${localStorage.getItem('token')}`,
+                Authorization: `Bearer ${localStorage.getItem('token')}`,
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
                 },
             }).then((res) => {
                 setAlbums(res.data);
