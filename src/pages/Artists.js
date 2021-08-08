@@ -1,11 +1,11 @@
 import axios from 'axios';
 import React, { useState, useEffect } from 'react';
-import { Redirect } from 'react-router-dom';
+import { Redirect , useHistory } from 'react-router-dom';
 import ArtistsResult from '../components/ArtistsResult';
 import { FaSearch } from "react-icons/fa";
   
 function Artists  ()  {
-    const [back, setBack] = useState(false);
+    let history = useHistory();
     const [search, setSearch] = useState(null);
     const [artists, setArtists] = useState([]);
    
@@ -25,8 +25,7 @@ function Artists  ()  {
       
     }, []);
 
-    if (back) return <Redirect to='/login' />;
-
+   
    
 
     function searchA (e, searchParam){
@@ -51,7 +50,7 @@ function Artists  ()  {
 
                 if (err.message.includes('401')) {
                     localStorage.removeItem('token');
-                    setBack(true);
+                    history.push('/login')
                 }
                     
                    

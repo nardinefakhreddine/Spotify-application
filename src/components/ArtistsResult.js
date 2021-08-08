@@ -20,9 +20,6 @@ function ArtistsResult  ({ artists }){
                               <Link style={{textDecoration:'none'}}
                                   to={{
                                       pathname: `/${artist.id}`,
-                                      state: {
-                                          artist: artist,
-                                      },
                                   }}
                               >
                                   <div

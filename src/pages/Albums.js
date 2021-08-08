@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import { Redirect ,Link} from 'react-router-dom';
+import { Redirect ,Link , useHistory } from 'react-router-dom';
 import { withRouter } from 'react-router';
 import { useRouteMatch } from 'react-router-dom';
 import axios from 'axios';
 
 function Albums (props) {
     const [albums, setAlbums] = useState([]);
-    const [redirect, setRedirect] = useState(false);
+    let history = useHistory();
     const match = useRouteMatch('/:id');
     let artistID = match.params.id;;
     
@@ -21,15 +21,13 @@ function Albums (props) {
                 setAlbums(res.data);
                 console.log(res.data.items);
             }).catch((err) => {
-                console.log(err);
-                if (err.message.includes('401')) {
+                
                     localStorage.removeItem('token');
-                    setRedirect(true);
-                }
+                    history.push('/login')
             });
     }, [artistID]);
 
-    if (redirect) return <Redirect to='/login' />;
+   
 
     return (
         <div className='row row-cols-auto ml-auto mr-auto mt-5'>
@@ -98,4 +96,4 @@ function Albums (props) {
     );
 };
 
-export default withRouter(Albums);
+export default Albums;
